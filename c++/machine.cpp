@@ -8,7 +8,8 @@
 
 #include "main.hpp"
 
-class voter
+
+class voterDEMO
 {
 private:
     int voterID;
@@ -17,7 +18,7 @@ private:
     bool hasVoted;
     
 public:
-    /*Public Modification Functions*/
+    //Public Modification Functions
     void ModID(int newID){voterID=newID;};
     void ModName(string newN){voterName=newN;};
     void ModExp(){
@@ -31,7 +32,7 @@ public:
         };
     void ModHasVoted(bool newS){hasVoted=newS;};
     
-    /*Public Data Pulls*/
+    //Public Data Pulls
     void Pull_ID(){cout << "Voter ID#: " << voterID << endl;};
     
     void Pull_Name(){cout << "Voter Name: " << voterName << endl;};
