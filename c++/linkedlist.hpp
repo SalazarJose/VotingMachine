@@ -1,6 +1,6 @@
 //
 //  linkedlist.hpp
-//  
+//
 //
 //  Created by Jose Salazar on 1/22/17.
 //
@@ -18,14 +18,17 @@ private:
     int voterID;
     string voterName;
     bool voted;
+    int candidate;
     voter *next;
 public:
-    voter(int id,string vn, bool vs)
+    voter(int id,string vn, bool vs, int cd)
     {
         voterID=id;
         voterName=vn;
         voted=vs;
+        candidate=cd;
     }
+    void ModCD(int newCD){candidate=newCD;};
     void ModID(int newID){voterID=newID;};
     void ModName(string newN){voterName=newN;};
     /*void ModExp(){
@@ -38,20 +41,22 @@ public:
         }
     };*/
     void ModHasVoted(bool newS){voted=newS;};
-    
+
     /*Public Data Pulls*/
+    int Pull_CD(){return candidate;};
+
     int Pull_ID(){return voterID;};
-    
+
     string Pull_Name(){return voterName;};
-    
+
     /*void Pull_Exp(){
         cout << "Expiration Date: " << expiration[0] << "/" << expiration[1] << "/" <<expiration[2] << endl;
     };*/
-    
+
     bool Pull_HasVoted(){return voted;};
-    
+
     void ModNext(voter *n){ next = n; }
-    
+
     voter *Pull_Next(){ return next;}
 
 };
@@ -83,30 +88,36 @@ public:
     void addvoter()
     {
         string vn;
+        int cd;
         int id;
         voter *temp, *temp2;
         temp2 = top;
         bool validator=false;
         bool vs;
 
-        
-        
+
+
         cout << "Please enter an ID: ";
         cin >> id;
         cout << endl;
         cout << "Please enter an name: ";
         cin >> vn;
+        cout << "Cast your vote\n";
+        cout << "0 - Person 0\n";
+        cout << "1 - Person 1\n";
+        cout << "2 - Person 2\n";
+        cin  >> cd;
         voter *now = top;
-            
+
         while (now != NULL) //while the list isn't empty
         {
 
             now = now->Pull_Next(); // this fvmction gets the next member of memory in the stack.
 
-                
+
         }
-            
-        temp = new voter(id, vn, vs);
+
+        temp = new voter(id, vn, vs, cd);
         if (cnt == 0)
         {
             top = bottom = temp;
@@ -122,32 +133,33 @@ public:
         }
 
     }
-    
+
     void printList()
     {
         cout << endl;
         cout << endl << endl;
         voter *now = top;
-        
+
         //cout << "\tVOTER ID\tNAME\tTEAM" << endl;
-        
+
         while (now != NULL)
         {
             cout << "\t";
             cout << now->Pull_ID();
             cout << "\t";
             cout << now->Pull_Name();
-            cout << "\tUNASSIGNED";
+            cout << "\t";
+            cout << now->Pull_CD();
             cout << endl;
             now = now->Pull_Next();
-            
+
         }
         if (now == NULL)
         {
             cout << endl << endl;
             return;
         }
-        
+
     }
 
 };

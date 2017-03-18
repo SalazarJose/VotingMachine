@@ -1,6 +1,6 @@
 //
 //  machine.cpp
-//  
+//
 //
 //  Created by Jose Salazar on 1/22/17.
 //
@@ -16,10 +16,11 @@ private:
     string voterName;
     int expiration[3];
     bool hasVoted;
-    
+    int candidate;
 public:
     //Public Modification Functions
     void ModID(int newID){voterID=newID;};
+    void ModCD(int newCD){candidate=newCD;};
     void ModName(string newN){voterName=newN;};
     void ModExp(){
         int newE;
@@ -31,15 +32,17 @@ public:
         }
         };
     void ModHasVoted(bool newS){hasVoted=newS;};
-    
+
     //Public Data Pulls
     void Pull_ID(){cout << "Voter ID#: " << voterID << endl;};
-    
+
+    void Pull_CD(){cout << "Voted for Person# " << candidate << endl;};
+
     void Pull_Name(){cout << "Voter Name: " << voterName << endl;};
-    
+
     void Pull_Exp(){
         cout << "Expiration Date: " << expiration[0] << "/" << expiration[1] << "/" <<expiration[2] << endl;
     };
-    
+
     void Pull_HasVoted(){cout << "Already Voted: "<< hasVoted <<endl;};
 };

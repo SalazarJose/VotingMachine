@@ -1,6 +1,6 @@
 //
 //  main.cpp
-//  
+//
 //
 //  Created by Jose Salazar on 1/22/17.
 //
@@ -11,24 +11,24 @@
 #include "resp.cpp"
 #include "linkedlist.hpp"
 int main(){
-    
-    
+
+
     //MAIN PROGRAM IMPLEMENTATION
     //This section will run the linked list that us still under construction.
-    
-    
+
+
     cout << "*****This part is still under construction*****" <<endl;
     voters myvoter1;
     myvoter1.addvoter();
     myvoter1.printList();
     cout << "*****end of this section*****" <<endl;
     //END OF LINKED LIST SECTION.
-    
-    
+
+
     //DEMO BELOW*****
     //This section will run a simple "demo", might be used for the above section later on.
     voterDEMO voter1;
-    
+
     cout << "*****This is a sample DEMO version.*****" <<endl;
     //Generate Voter Test
     voter1.ModName("Robot # 1");
@@ -37,8 +37,9 @@ int main(){
     voter1.ModExp();
     cout << "Thanks!" <<endl;
     voter1.ModHasVoted(true);
+    voter1.ModCD(2);
 
-    
+
     cout << endl << endl <<endl;
     cout << "Pulling Data on Test Voter.." <<endl;
     //Return Voter Test Results
@@ -46,8 +47,9 @@ int main(){
     voter1.Pull_ID();
     voter1.Pull_Exp();
     voter1.Pull_HasVoted();
-    
+    voter1.Pull_CD();
+
     //End Program with Code 0 *****
-    
+
     return 0;
 }
